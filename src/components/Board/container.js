@@ -1,9 +1,17 @@
 import { connect } from 'react-redux'
-import { initializeBoard } from './actions'
+import { initializeBoard, updateStatus } from './actions'
 import component from './component'
 
 
+const mapStateToProps = state => ({
+    candidates: state.board
+})
+
+
 export default connect(
-    null,
-    { initializeBoard }
+    mapStateToProps,
+    {
+        initializeBoard,
+        updateStatus
+    }
 )(component)

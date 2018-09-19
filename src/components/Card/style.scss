@@ -1,0 +1,35 @@
+@import 'styles/variables';
+
+
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid $color-primary;
+    margin: 10px;
+    padding: 10px 10px 30px;
+    position: relative;
+
+    &__image {
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+
+    &__link {
+        position: absolute;
+        bottom: 0;
+        font-size: 40px;
+        text-decoration: none;
+        color: $color-primary;
+
+        &_position {
+            &_left {
+                left: 0;
+            }
+            &_right {
+                right: 0;
+            }
+        }
+    }
+}
