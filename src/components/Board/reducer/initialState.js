@@ -1,17 +1,25 @@
+import * as localStorageKeys from 'constants/localStorageKeys'
 import data from 'data.json'
 
-// assume no fetch is required since there is no way to save the state on remote server anyway
-// get data from the file
-const originalData = data.results.reduce((obj, item) => {
-    obj[item.id.value] = item
-    return obj
-}, {})
-const origialKeys = Object.keys(originalData)
 
+const savedData = JSON.parse(localStorage.getItem(localStorageKeys.DATA))
+let originalData = {}
+let originalKeys = []
 
-export default {
+if (!savedData) {
+    // assume no fetch is required since there is no way to save the state on remote server anyway
+    // get data from the file on first run
+
+    originalData = data.results.reduce((obj, item) => {
+        obj[item.id.value] = item
+        return obj
+    }, {})
+    originalKeys = Object.keys(originalData)
+}
+
+export default savedData || {
     byId: originalData,
-    applied: origialKeys,
+    applied: originalKeys,
     interviewing: [],
     hired: []
 }

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { initializeBoard, updateStatus } from './actions'
+import { updateStatus } from './actions'
 import component from './component'
 
 
@@ -10,8 +10,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    {
-        initializeBoard,
-        updateStatus
-    }
+    { updateStatus }
 )(component)

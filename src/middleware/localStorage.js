@@ -1,10 +1,17 @@
+import * as localStorageKeys from 'constants/localStorageKeys'
+import { UPDATE_STATUS } from 'components/Board/constants/actionTypes'
+
+
 export default ({ getState }) => next => (action) => {
-    const prevState = getState()
     const result = next(action)
+    const nextState = getState()
 
     switch (action.type) {
-
-        // TODO update storage on filter change
+        case UPDATE_STATUS:
+            localStorage.setItem(
+                localStorageKeys.DATA,
+                JSON.stringify(nextState.board)
+            )
 
         default:
             break

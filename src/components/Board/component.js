@@ -12,12 +12,7 @@ export default class Board extends Component {
             interviewing: PropTypes.arrayOf(PropTypes.string),
             hired: PropTypes.arrayOf(PropTypes.string),
         }).isRequired,
-        initializeBoard: PropTypes.func.isRequired,
         updateStatus: PropTypes.func.isRequired
-    }
-
-    componentWillMount() {
-        this.props.initializeBoard()
     }
 
     handleStatusUpdate = (id, newStatus, oldStatus) => {
