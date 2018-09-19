@@ -13,6 +13,8 @@ export default ({ getState }) => next => (action) => {
                 JSON.stringify(nextState.board)
             )
 
+            break
+
         default:
             break
     }
