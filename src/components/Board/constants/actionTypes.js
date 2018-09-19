@@ -1,0 +1,1 @@
+export const INITIALIZE_BOARD = 'INITIALIZE_BOARD'

@@ -1,0 +1,35 @@
+{
+  "root": true,
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "rules": {
+    "indent": ["error", 4, { "SwitchCase": 1 }],
+    "semi": ["error", "never"],
+    "comma-dangle": ["error", "never"],
+    "no-confusing-arrow": ["error", {"allowParens": true}],
+    "no-unused-expressions": ["error", { "allowTernary": true }],
+    "no-plusplus": "off",
+    "jsx-quotes": ["error", "prefer-single"],
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent-props": ["error", 4],
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+    "react/jsx-closing-bracket-location": ["error", {"selfClosing": "line-aligned", "nonEmpty": "after-props"}],
+    "react/no-unused-prop-types": ["error", { "skipShapeProps": true }]
+  }
+}

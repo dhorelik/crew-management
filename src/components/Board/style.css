@@ -1,0 +1,5 @@
+.board {
+  display: flex;
+  flex-direction: row; }
+  .board__column {
+    flex: 1; }
