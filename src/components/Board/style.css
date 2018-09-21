@@ -1,8 +1,0 @@
-.board {
-  display: flex;
-  flex-direction: row; }
-  .board__column {
-    flex: 1; }
-  .board__title {
-    font-size: 20px;
-    margin: 20px 0; }
