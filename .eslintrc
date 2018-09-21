@@ -13,9 +13,26 @@
   },
   "parser": "babel-eslint",
   "plugins": [
-    "react"
+    "react",
+    "jsx-a11y"
   ],
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "settings": {
+    "react": {
+      "version": "16.4"
+    },
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  },
   "rules": {
     "indent": ["error", 4, { "SwitchCase": 1 }],
     "semi": ["error", "never"],
