@@ -7,7 +7,6 @@ const mapStateToProps = state => ({
     candidates: state.board
 })
 
-
 export default connect(
     mapStateToProps,
     { updateStatus }

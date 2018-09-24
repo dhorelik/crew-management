@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Board should render consistently 1`] = `
+<div
+  className="board"
+>
+  <div
+    className="board__column"
+  >
+    <h3
+      className="board__title"
+    >
+      Applied
+    </h3>
+    <div
+      className="card"
+    >
+      <img
+        alt="katherine lane"
+        className="card__image"
+        src="https://randomuser.me/api/portraits/women/40.jpg"
+      />
+      <p
+        className="card__name"
+      >
+        katherine
+         
+        lane
+      </p>
+      <div
+        className="card__link card__link_position_right"
+        onClick={[Function]}
+      >
+        →
+      </div>
+    </div>
+  </div>
+  <div
+    className="board__column"
+  >
+    <h3
+      className="board__title"
+    >
+      Interviewing
+    </h3>
+  </div>
+  <div
+    className="board__column"
+  >
+    <h3
+      className="board__title"
+    >
+      Hired
+    </h3>
+  </div>
+</div>
+`;

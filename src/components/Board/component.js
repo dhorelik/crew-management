@@ -1,64 +1,55 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
+import type { CandidateState, CandidateStatusValues } from 'types/candidate'
 import Card from 'components/Card'
+import type { UpdateStatusAction } from 'types/actions'
 import './style.css'
 
 
-export default class Board extends Component {
-    static propTypes = {
-        candidates: PropTypes.shape({
-            byId: PropTypes.shape,
-            applied: PropTypes.arrayOf(PropTypes.string),
-            interviewing: PropTypes.arrayOf(PropTypes.string),
-            hired: PropTypes.arrayOf(PropTypes.string)
-        }).isRequired,
-        updateStatus: PropTypes.func.isRequired
-    }
-
-    handleStatusUpdate = (id, newStatus, oldStatus) => {
-        this.props.updateStatus(id, newStatus, oldStatus)
-    }
-
-    render() {
-        return (
-            <div className='board'>
-                <div className='board__column'>
-                    <h3 className='board__title'>Applied</h3>
-
-                    { this.props.candidates.applied.map(candidateId =>
-                        <Card
-                            key={candidateId}
-                            handleRight={() => this.handleStatusUpdate(candidateId, 'interviewing', 'applied')}
-                            {...this.props.candidates.byId[candidateId]}
-                        />
-                    )}
-                </div>
-
-                <div className='board__column'>
-                    <h3 className='board__title'>Interviewing</h3>
-
-                    { this.props.candidates.interviewing.map(candidateId =>
-                        <Card
-                            key={candidateId}
-                            handleLeft={() => this.handleStatusUpdate(candidateId, 'applied', 'interviewing')}
-                            handleRight={() => this.handleStatusUpdate(candidateId, 'hired', 'interviewing')}
-                            {...this.props.candidates.byId[candidateId]}
-                        />
-                    )}
-                </div>
-
-                <div className='board__column'>
-                    <h3 className='board__title'>Hired</h3>
-
-                    { this.props.candidates.hired.map(candidateId =>
-                        <Card
-                            key={candidateId}
-                            handleLeft={() => this.handleStatusUpdate(candidateId, 'interviewing', 'hired')}
-                            {...this.props.candidates.byId[candidateId]}
-                        />
-                    )}
-                </div>
-            </div>
-        )
-    }
+type Props = {
+    candidates: CandidateState,
+    updateStatus: (id: string, newStatus: CandidateStatusValues, oldStatus: CandidateStatusValues) => UpdateStatusAction
 }
+
+
+const Board = (props: Props) => (
+    <div className='board'>
+        <div className='board__column'>
+            <h3 className='board__title'>Applied</h3>
+
+            { props.candidates.applied.map(candidateId =>
+                <Card
+                    key={candidateId}
+                    handleRight={() => props.updateStatus(candidateId, 'interviewing', 'applied')}
+                    {...props.candidates.byId[candidateId]}
+                />
+            )}
+        </div>
+
+        <div className='board__column'>
+            <h3 className='board__title'>Interviewing</h3>
+
+            { props.candidates.interviewing.map(candidateId =>
+                <Card
+                    key={candidateId}
+                    handleLeft={() => props.updateStatus(candidateId, 'applied', 'interviewing')}
+                    handleRight={() => props.updateStatus(candidateId, 'hired', 'interviewing')}
+                    {...props.candidates.byId[candidateId]}
+                />
+            )}
+        </div>
+
+        <div className='board__column'>
+            <h3 className='board__title'>Hired</h3>
+
+            { props.candidates.hired.map(candidateId =>
+                <Card
+                    key={candidateId}
+                    handleLeft={() => props.updateStatus(candidateId, 'interviewing', 'hired')}
+                    {...props.candidates.byId[candidateId]}
+                />
+            )}
+        </div>
+    </div>
+)
+
+export default Board

@@ -9,19 +9,22 @@
   },
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "parser": "babel-eslint",
   "plugins": [
     "react",
-    "jsx-a11y"
+    "jsx-a11y",
+    "flowtype"
   ],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:jsx-a11y/recommended"
+    "plugin:jsx-a11y/recommended",
+    "plugin:flowtype/recommended"
   ],
   "settings": {
     "react": {
@@ -47,6 +50,7 @@
     "react/jsx-indent-props": ["error", 4],
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     "react/jsx-closing-bracket-location": ["error", {"selfClosing": "line-aligned", "nonEmpty": "after-props"}],
-    "react/no-unused-prop-types": ["error", { "skipShapeProps": true }]
+    "react/no-unused-prop-types": ["error", { "skipShapeProps": true }],
+    "flowtype/no-types-missing-file-annotation": "off"
   }
 }

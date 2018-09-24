@@ -1,1 +1,1 @@
-export const DATA = 'applicantsData'
+export const DATA: string = 'applicantsData'
