@@ -27,12 +27,15 @@ exports[`Board should render consistently 1`] = `
          
         lane
       </p>
-      <div
+      <a
         className="card__link card__link_position_right"
         onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex="0"
       >
         →
-      </div>
+      </a>
     </div>
   </div>
   <div
