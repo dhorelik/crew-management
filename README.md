@@ -30,7 +30,9 @@ ESLint is configured to provide linting (see the [eslint website](http://eslint.
 
 #### Type checking
 
-Flow is configured to provide type checking for all files (see the [flow website](https://flow.org) for details)
+Flow is configured to provide type checking for all files (see the [flow website](https://flow.org) for details). It's been setup to check all project files.
+
+[Flow-typed](https://github.com/flow-typed/flow-typed) is used to create library definitions for third-party libraries that were not written with Flow.
 
 
 `npm run flow`
